@@ -1,23 +1,24 @@
-import java.io.*;
+import java.math.BigDecimal;
 import java.util.*;
+class Problem1{
 
-public class Problem1 {
-
-    public static void main(String[] args) {
-        
-        Scanner sc=new Scanner(System.in);
-        String A=sc.next();
-        String B=sc.next();
-        
-        System.out.println(A.length()+B.length());
-        
-        if(A.compareTo(B)>0){
-          System.out.println("Yes");
-          System.out.println(B+" "+A);
+    public static void main(String []args){
+        //Input
+        Scanner sc= new Scanner(System.in);
+        int n=sc.nextInt();
+        String []s=new String[n+2];
+        for(int i=0;i<n;i++){
+            s[i]=sc.next();
         }
-        else{
-          System.out.println("No");
-          System.out.println(A+" "+B);
+        sc.close();
+        
+        
+       
+       //Output
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(s[i]);
         }
     }
+
 }
