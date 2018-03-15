@@ -1,22 +1,20 @@
-import java.util.Scanner;
+import java.io.IOException;
+import java.lang.reflect.Method;
 
-public class Problem10 {
-    private static final Scanner scan = new Scanner(System.in);
-    
-    public static void main(String[] args) {
-        int n = Integer.parseInt(scan.nextLine());
-        while (n-- != 0) {
-            String userName = scan.nextLine();
-
-            if (userName.matches(UsernameValidator.regularExpression)) {
-                System.out.println("Valid");
-            } else {
-                System.out.println("Invalid");
-            }           
-        }
+class Problem10
+{
+    public static void main( String args[] ) {
+        Integer[] intArray = { 1, 2, 3 };
+        String[] stringArray = {"Hello", "World"};
+        Character[] charArray = {'N', '0'};
+        printArray(intArray);
+        printArray(stringArray);
+        printArray(charArray);
     }
-}
-
-class UsernameValidator {
-    public static final String regularExpression = "^[[A-Z]|[a-z]][[\\w]|[_]]{7,29}$";
+    
+    public static <E> void printArray(E[] inputArray){
+    for(int i = 0; i < inputArray.length; i++){
+      System.out.println(inputArray[i]);
+    }
+  }
 }

@@ -1,31 +1,36 @@
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
 public class Problem9 {
 
-    public static void main(String[] args) {
-
-        String regex = "\\b(\\w+)(\\W\\1\\b)+";
-        Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
-
-        Scanner in = new Scanner(System.in);
-        int numSentences = Integer.parseInt(in.nextLine());
+ public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        String [] pair_left = new String[t];
+        String [] pair_right = new String[t];
         
-        while (numSentences-- > 0) {
-            String input = in.nextLine();
+        int count = 0;
+        
+        HashSet set1 = new HashSet();
+        HashSet set2 = new HashSet();
+        
+        for (int i = 0; i < t; i++) {
+            pair_left[i] = s.next();
+            pair_right[i] = s.next();
             
-            Matcher m = p.matcher(input);
+            set1.add(pair_left[i]);
+            set2.add(pair_right[i]);
             
-            // Check for subsequences of input that match the compiled pattern
-            while (m.find()) {
-                input = input.replaceAll(m.group(), m.group(1));
-            }
+            if(set1.size() >= set2.size())
+              System.out.println(set1.size());
             
-            // Prints the modified sentence.
-            System.out.println(input);
+            else if(set1.size() < set2.size())
+              System.out.println(set2.size());
+            
+            //System.out.println(set1 + ", " + set2);
         }
-        
-        in.close();
-    }
+ }
 }
